@@ -2,6 +2,9 @@ body{
     background-color:lightblue;
     
 }
+.title{
+    margin: auto;
+}
 h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ffffff;
