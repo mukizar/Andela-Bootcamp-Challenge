@@ -1,15 +1,24 @@
 {% extends 'layout.html' %}
 
+
+
+
 {% block body %}
 
-   
+  <style type="text/css">
+    body{
+      background-image: url("http://blog.hdwallsource.com/wp-content/uploads/2015/01/mexican-food-wallpaper-hd-43047-44073-hd-wallpapers.jpg");
+      background-repeat: no-repeat;
+    }
+
+  </style>
+
   <div class="jumbotron text-center">
     <h1> Welcome To Yummy Recipes </h1>
     <p class="lead">For Those Who love cooking</p>
+    <a href="/signup" class="btn btn-primary btn-lg">SignUp</a>
+    <a href="/signin" class="btn btn-success btn-lg">SignIn</a>
 
-    {% if session.logged_in == NULL %}
-      <a href="/register" class="btn btn-primary btn-lg">SignUp</a>
-      <a href="/login" class="btn btn-success btn-lg">Login</a>
-    {% endif %}
+
   </div>
 {% endblock %}
