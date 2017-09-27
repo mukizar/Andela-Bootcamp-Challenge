@@ -19,3 +19,5 @@ def Posts():
 
         }
     ]
+    return posts;
+
