@@ -2,11 +2,17 @@ language: python
 python:
   - "3.6"
 # command to install dependencies
-install: "pip install -r requirements.txt"
+install: 
+  -pip install -r requirements.txt
+  -pip install python-coveralls
+  -pip install coverage
 # command to run tests
 
-script: "sbt clean coverage test"
-after_success: "sbt coveralls"
+script: 
+  -coverage run test.py
+  -python test.py
 
-script: "python test.py"
+after_success:
+  -coveralls
  
+
