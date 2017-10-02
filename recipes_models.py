@@ -28,7 +28,7 @@ class Recipe(object):
             if recipe:  
                 del recipe[0]
 
-                return s
+                return 
 
 
 
