@@ -1,11 +1,11 @@
 """ module for users """
 
-registered_users = {"email": ["name", "username", "password"]} # pylint: disable=invalid-name
+registered_users = {"email": []} # pylint: disable=invalid-name
 
 
 class Users(object):
     """create class users"""
-    def __init__(self, name, username, email, password,):
+    def __init__(self, email, password, name=None, username=None,):
         self.name = name
         self.username = username
         self.email = email
@@ -34,3 +34,4 @@ class Users(object):
                 return 'Incorrect password'
         else:
             return 'You are not register! Please sign up'
+        
