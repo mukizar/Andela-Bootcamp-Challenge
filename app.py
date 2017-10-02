@@ -1,13 +1,14 @@
 """Setting up flaskApp"""
-from flask import Flask, render_template, request
-from data import Posts
+from flask import Flask, render_template, request, flash
+from data import Recipes
 from wtforms import Form, StringField, PasswordField, validators
+import users_data
 
 app = Flask(__name__) # pylint: disable=invalid-name
 
-POSTS = Posts()
+Recipes = Recipes() # pylint: disable=invalid-name
 
-@app.route('/')
+@app.route("/")
 def home():
     """function to return home template"""
     return render_template('home.html')
@@ -17,10 +18,15 @@ def about():
     """function to return about template"""
     return render_template("about.html")
 
-@app.route("/posts")
-def posts():
-    """function to return posts template"""
-    return render_template("posts.html", POSTS=Posts)
+@app.route("/recipes")
+def user_recipes():
+    """function to return recipes template"""
+    return render_template("recipes.html", recipes=Recipes)
+
+@app.route("/recipe/<string:ID>/")
+def user_recipe(ID):
+    """function to return recipe template"""
+    return render_template("recipe.html", ID=ID)
 
 class SignUpForm(Form):
     """Setting up wtform for SignUp"""
@@ -38,7 +44,15 @@ def sign_up():
     """function for returning the SignUp page"""
     form = SignUpForm(request.form)
     if request.method == 'POST' and form.validate():
-        return render_template('signup.html')
+        name = form.name.data
+        username = form.username.data
+        email = form.email.data
+        password = form.password.data
+        add_user = users_data.Users(name, username, email, password)
+        add_user.signup()
+
+        return render_template('signin.html')
+
     return render_template('signup.html', form=form)
 
 class SignInForm(Form):
@@ -50,6 +64,14 @@ class SignInForm(Form):
 def sign_in():
     """function to return SignIn page"""
     form = SignInForm(request.form)
+    if request.method == 'POST' and form.validate():
+        email = form.email.data
+        password = form.password.data
+
+        if email in users_data.registered_users:
+            #signedin_user = users_data.Users(email, password)
+            return render_template("dashboard.html",form = form)
+
     return render_template("signin.html", form=form)
 
 if __name__ == '__main__':

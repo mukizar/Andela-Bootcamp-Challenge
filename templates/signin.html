@@ -3,7 +3,7 @@
 {% block body %}
     <h1>SignIn</h1>
     {% from "includes/_formhelpers.html" import render_field %}
-    <form action="" method="POST">
+    <form action="{{url_for('sign_in')}}" method="POST">
 
         <div class="form-group">
             {{render_field(form.email, class_="form-control")}}
