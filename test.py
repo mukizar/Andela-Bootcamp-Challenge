@@ -37,11 +37,6 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/create_recipe', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
-    def test_delete_recipe(self):
-        """function defining the test for the  rendering dashboard page """
-        tester = app.test_client(self)
-        response = tester.get('/delete_recipe', content_type='html/text')
-        self.assertEqual(response.status_code, 200)
 
 
 

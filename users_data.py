@@ -6,10 +6,10 @@ registered_users = {"email": []} # pylint: disable=invalid-name
 class Users(object):
     """create class users"""
     def __init__(self, email, password, name=None, username=None,):
-        self.name = name
-        self.username = username
         self.email = email
         self.password = password
+        self.name = name
+        self.username = username
 
     def signup(self):
         """sign up method"""
