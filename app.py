@@ -119,13 +119,16 @@ def update_recipe():
     return render_template('update_recipe.html', form=form)
 
 # Delete Recipe
-@app.route('/delete_recipe/', methods=['POST'])
-def delete_recipe():
+@app.route('/delete_recipe/<string:title>', methods=['POST'])
+def delete_recipe(title):
     """intialize delete a recipe"""
     if request.method == 'POST':
+        recipe = recipes_models.Recipe()
+        recipe.delete_recipe(title)
+
         
-        flash('Recipe has been deleted')
-    return redirect(url_for('dashboard'))
+        
+        return redirect(url_for('dashboard'))
 
 
 if __name__ == '__main__':

@@ -19,13 +19,13 @@ class Recipe(object):
 
         user_recipes.append(recipe)
 
-    def delete_recipe(self, recipe):
+    def delete_recipe(self, title):
         """intiate delete function"""
         for recipe in user_recipes:
-            if recipe:  
-                del recipe[0]
+            if recipe["title"] == title:
+                user_recipes.pop(user_recipes.index(recipe))
 
-                return 
+               
 
 
 
