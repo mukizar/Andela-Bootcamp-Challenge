@@ -19,10 +19,10 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/signup', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
-    def test_user_dashboard(self):
-        """function defining the test for the Postspage """
+    def test_recipes(self):
+        """function defining the test for the  Recipes page """
         tester = app.test_client(self)
-        response = tester.get('/posts', content_type='html/text')
+        response = tester.get('/recipes', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
 
