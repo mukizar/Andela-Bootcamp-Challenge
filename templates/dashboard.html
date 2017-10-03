@@ -1,6 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+
+<style type="text/css">
+  body{
+    background-color: lightblue;
+  }
+
+</style>
+
   <h1>Dashboard <small> Welcome {{session.username}}</small></h1>
   <a class="btn btn-success" href="/create_recipe"> Create Recipe</a>
   <hr>

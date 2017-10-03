@@ -1,5 +1,5 @@
 """module for implementing recipe methods"""
-user_recipes = [{'title':'', 'details':''}] # pylint: disable=invalid-name
+user_recipes = [] # pylint: disable=invalid-name
 
 
 class Recipe(object):
@@ -12,15 +12,12 @@ class Recipe(object):
 
     def create_recipe(self):
         """"intiate create function"""
-        for recipe in user_recipes:
 
-            if self.title == recipe["title"]:
-                return False
-            else:
-                recipe["title"] = self.title
-                recipe["details"] = self.details
+        recipe = {}
+        recipe["title"] = self.title
+        recipe["details"] = self.details
 
-                user_recipes.append(recipe)
+        user_recipes.append(recipe)
 
     def delete_recipe(self, recipe):
         """intiate delete function"""

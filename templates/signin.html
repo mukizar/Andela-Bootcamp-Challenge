@@ -1,6 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+
+<style type="text/css">
+  body{
+    background-color: lightblue;
+  }
+
+</style>
+
   <h1>SignIn</h1>
   <form action="{{ url_for('sign_in') }}" method="POST">
     <div class="form-group">
