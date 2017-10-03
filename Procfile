@@ -1,1 +1,1 @@
-web: gunicorn --workers=1 yummyrecipesapp: app
+web: gunicorn --workers=1 app:app
