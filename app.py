@@ -124,7 +124,7 @@ def delete_recipe():
     """intialize delete a recipe"""
     if request.method == 'POST':
         
-    flash('Recipe has been deleted')
+        flash('Recipe has been deleted')
     return redirect(url_for('dashboard'))
 
 
