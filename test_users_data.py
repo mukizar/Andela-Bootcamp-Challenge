@@ -16,7 +16,10 @@ class UserModelTest(unittest.TestCase):
         """test if regisetered user is added to list"""
         registered_users = Users('rmukiza@gmail.com','rayner45', 'Rayner', 'rmukiza')
         self.assertEqual({'email': [], 'rmukiza@gmail.com': ['Rayner', 'rmukiza', 'rayner45']}, registered_users.signup())
-
+  
+    def test_wrong_password_on_signin(self):
+        registered_users= Users('rmukiza@gmail.com', 'abcd')
+        self.assertEqual(registered_users.signin(), 'Incorrect password')
 
 if __name__ == '__main__':
     unittest.main()
