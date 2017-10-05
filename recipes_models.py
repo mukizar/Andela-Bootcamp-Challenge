@@ -25,12 +25,9 @@ class Recipe(object):
         for recipe in user_recipes:
             if recipe["title"] == title:
                 user_recipes.pop(user_recipes.index(recipe))
-    
-    def get_recipe(self, title):
-        for recipe in user_recipes:
-            if recipe["title"] == title:
-                return recipe
 
     def update_recipe(self, title):
         """intiate update function"""
-
+        for recipe in user_recipes:
+            if recipe["title"] == title:
+                user_recipes.append(recipe)

@@ -99,7 +99,7 @@ def create_recipe():
 @app.route('/update_recipe/<string:title>', methods=['GET', 'POST'])
 def update_recipe(title):
     """intialize recipe update"""
-    get_recipe =''
+    get_recipe = ''
     for recipe in Recipes_:
         if recipe["title"] == title:
             get_recipe = recipe
