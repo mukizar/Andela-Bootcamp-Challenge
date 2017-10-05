@@ -1,4 +1,5 @@
 """module for implementing recipe methods"""
+
 user_recipes = [] # pylint: disable=invalid-name
 
 
@@ -24,12 +25,12 @@ class Recipe(object):
         for recipe in user_recipes:
             if recipe["title"] == title:
                 user_recipes.pop(user_recipes.index(recipe))
+    
+    def get_recipe(self, title):
+        for recipe in user_recipes:
+            if recipe["title"] == title:
+                return recipe
 
-               
-
-
-
-
-    def update_recipe(self, recipe, new_recipe):
+    def update_recipe(self, title):
         """intiate update function"""
-        pass
+

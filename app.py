@@ -63,7 +63,6 @@ def sign_in():
         for email in users_data.registered_users:
             if email == email_:
                 return redirect(url_for('dashboard'))
-            #loggedIn = users_data.Users(email, password)
 
     return render_template("signin.html")
 
@@ -98,21 +97,23 @@ def create_recipe():
 
 # Update Created Recipe
 @app.route('/update_recipe/<string:title>', methods=['GET', 'POST'])
-def update_recipe():
+def update_recipe(title):
     """intialize recipe update"""
+    get_recipe =''
+    for recipe in Recipes_:
+        if recipe["title"] == title:
+            get_recipe = recipe
     form = RecipeForm(request.form)
-
     #fill the form with recipe details
-    form.title.data = Recipes_['title']
-    form.details.data = Recipes_['details']
-
+    form.title.data = get_recipe["title"]
+    form.details.data = get_recipe["details"]
 
     if request.method == 'POST' and form.validate():
-        title = request.form['title']
-        details = request.form['details']
+        Title = request.form['title']
+        details = request.form['body']
 
-        updated_recipe = recipes_models.Recipe(title, details)
-        updated_recipe = update_recipe()
+        updated_recipe = recipes_models.Recipe(Title, details)
+        updated_recipe = update_recipe(title)
 
         return redirect(url_for('dashboard'))
 
@@ -125,9 +126,6 @@ def delete_recipe(title):
     if request.method == 'POST':
         recipe = recipes_models.Recipe()
         recipe.delete_recipe(title)
-
-        
-        
         return redirect(url_for('dashboard'))
 
 
