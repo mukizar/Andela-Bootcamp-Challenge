@@ -37,8 +37,5 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/create_recipe', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
-
-
-
 if __name__ == '__main__':
     unittest.main()
